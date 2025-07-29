@@ -6,12 +6,14 @@ Here's the link to the Shopify App Bridge ui-modal: https://shopify.dev/docs/api
 
 # Email Templates Modal UI for Shopify Polaris
 
-React component for editing email templates in Shopify apps. Works inside App Bridge iframes.
+React component for editing email templates in Shopify apps. Works inside App Bridge modal iframes.
 
 ## Installation
 
+Copy the files into your Shopify app project and install the required dependencies:
+
 ```bash
-npm install email-templates-modal-ui @shopify/polaris @shopify/polaris-icons
+npm install @shopify/polaris @shopify/polaris-icons
 ```
 
 ## Usage
