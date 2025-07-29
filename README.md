@@ -1,6 +1,14 @@
-# Email Templates Modal UI
+# Note from Beckett
 
-A standalone React component for editing and previewing HTML email templates with live preview functionality.
+I made this because I couldn't find a single example of one of those "Edit this web page/email" Polaris components. I didn't realize Shopify App Bridge's `<ui-modal>` doesn't accept normal React components, it needs to be in an iframe first, otherwise most functions just won't work.
+
+Here's the link to the Shopify App Bridge ui-modal: https://shopify.dev/docs/api/app-bridge-library/web-components/ui-modal
+
+# Email Templates Modal UI for Shopify Polaris
+
+A standalone React component for Shopify apps built with Polaris and App Bridge. Provides email template editing and live preview functionality with a beautiful Polaris-styled modal interface.
+
+> **Shopify-First Design**: Built specifically for Shopify apps using Polaris design system and App Bridge framework.
 
 ## Features
 
@@ -9,10 +17,13 @@ A standalone React component for editing and previewing HTML email templates wit
 - **Variable Editing**: Dynamic form fields for template variables
 - **Sample Data**: Quick-fill with sample data for testing
 - **Responsive Design**: Works on different screen sizes
-- **Shopify Polaris**: Beautiful UI components
+- **Shopify Polaris Components**: Consistent with Shopify's design system
+- **App Bridge Compatible**: Seamlessly integrates with Shopify App Bridge
 - **TypeScript**: Full type safety
 
 ## Installation
+
+This package requires Shopify Polaris and is designed for Shopify app development:
 
 ```bash
 npm install email-templates-modal-ui @shopify/polaris @shopify/polaris-icons
@@ -20,14 +31,16 @@ npm install email-templates-modal-ui @shopify/polaris @shopify/polaris-icons
 
 ## Usage
 
-### Basic Usage
+### Basic Usage in a Shopify App
 
 ```tsx
 import React, { useState, useCallback } from 'react';
 import { EmailTemplatesModalContent } from 'email-templates-modal-ui';
 import { getAllActiveTemplates, TemplateRegistryEntry } from 'email-templates-modal-ui/utils/templateRegistry';
+// Import your Shopify Polaris providers as needed
+import { AppProvider } from '@shopify/polaris';
 
-function MyEmailEditor() {
+function MyShopifyEmailEditor() {
   const allTemplates = getAllActiveTemplates();
   const [selectedTemplate, setSelectedTemplate] = useState(allTemplates[0]);
   const [variables, setVariables] = useState({});
@@ -46,13 +59,15 @@ function MyEmailEditor() {
   }, [selectedTemplate]);
 
   return (
-    <EmailTemplatesModalContent
-      selectedTemplateEntry={selectedTemplate}
-      templateVariables={variables}
-      onTemplateChange={handleTemplateChange}
-      onVariableUpdate={handleVariableUpdate}
-      onUseSampleData={handleUseSampleData}
-    />
+    <AppProvider i18n={{}}>
+      <EmailTemplatesModalContent
+        selectedTemplateEntry={selectedTemplate}
+        templateVariables={variables}
+        onTemplateChange={handleTemplateChange}
+        onVariableUpdate={handleVariableUpdate}
+        onUseSampleData={handleUseSampleData}
+      />
+    </AppProvider>
   );
 }
 ```
@@ -110,9 +125,9 @@ const customEntry: TemplateRegistryEntry = {
 
 ### EmailTemplatesModalContent
 
-Main modal component with three panels:
+Main modal component designed with Shopify Polaris styling, featuring three panels:
 - **Left**: Theme customization (placeholder)
-- **Middle**: Template selection and settings
+- **Middle**: Template selection and settings using Polaris form components
 - **Right**: Live preview
 
 **Props:**
@@ -147,9 +162,13 @@ Built-in categories:
 
 ## Requirements
 
+**Shopify App Development:**
 - React 18+
 - @shopify/polaris 12+
 - @shopify/polaris-icons 7+
+- Shopify App Bridge (for full Shopify app integration)
+
+**Note:** This component is specifically designed for Shopify apps and requires the Shopify Polaris design system.
 
 ## License
 
