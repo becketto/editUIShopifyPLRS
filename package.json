@@ -1,0 +1,45 @@
+{
+    "name": "email-templates-modal-ui",
+    "version": "1.0.0",
+    "description": "Standalone email template editor modal with live preview",
+    "main": "components/EmailTemplatesModal.tsx",
+    "files": [
+        "components/",
+        "types/",
+        "utils/",
+        "routes/"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch"
+    },
+    "dependencies": {
+        "react": "^18.0.0",
+        "@shopify/polaris": "^12.0.0",
+        "@shopify/polaris-icons": "^7.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.0",
+        "typescript": "^5.0.0"
+    },
+    "peerDependencies": {
+        "react": "^18.0.0"
+    },
+    "keywords": [
+        "email",
+        "templates",
+        "modal",
+        "html",
+        "preview",
+        "editor",
+        "shopify",
+        "polaris",
+        "react"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourusername/email-templates-modal-ui.git"
+    }
+}
